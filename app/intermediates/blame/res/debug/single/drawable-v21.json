@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    }
+]

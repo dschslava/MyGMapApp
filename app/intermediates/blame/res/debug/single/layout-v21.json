@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/res/layout-v21/notification_template_icon_group.xml"
+    }
+]

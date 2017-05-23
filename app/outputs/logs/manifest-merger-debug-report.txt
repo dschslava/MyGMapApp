@@ -1,0 +1,148 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:2:1-48:12
+	package
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:3:5-48
+		INJECTED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:10:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:11:5-80
+	android:name
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:11:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:12:5-78
+MERGED from [com.google.android.gms:play-services-maps:10.2.4] /Users/stephenyang/.android/build-cache/0de03ccf9bf263279a7225813cd05749aff65621/output/AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.INTERNET
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:13:5-66
+MERGED from [com.google.android.gms:play-services-maps:10.2.4] /Users/stephenyang/.android/build-cache/0de03ccf9bf263279a7225813cd05749aff65621/output/AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:13:22-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:14:5-80
+	android:name
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:14:22-78
+uses-permission#com.google.android.providers.gsf.permissions.READ_GSERVICES
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:15:5-98
+	android:name
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:15:22-96
+application
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:17:5-46:19
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/stephenyang/.android/build-cache/8cfe801eafeb5cb455fdad24ed1fadd694932bda/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/stephenyang/.android/build-cache/646943d1d6c22d0d9ba885af6f5a285de2f23414/output/AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-maps:10.2.4] /Users/stephenyang/.android/build-cache/0de03ccf9bf263279a7225813cd05749aff65621/output/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-base:10.2.4] /Users/stephenyang/.android/build-cache/f9aef6fa84bb522d6493657346e197c24f19629b/output/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-tasks:10.2.4] /Users/stephenyang/.android/build-cache/a2d8d14a3c53fa029816763e1ce9a76dc3d8a104/output/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:10.2.4] /Users/stephenyang/.android/build-cache/f4dd528a672084dce08de855605792f2dadca0d9/output/AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:25.3.1] /Users/stephenyang/.android/build-cache/9b04d8aa1f473b17858620868f80700a39d99594/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/stephenyang/.android/build-cache/99003cf072e18c21d6dd9b30e7810bb6fb1ef284/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/stephenyang/.android/build-cache/2126c61e74488bbed92014be2190ba47b03329de/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/stephenyang/.android/build-cache/3a2f1550fcd6c48a1ffe1bdb73ed06c09d0f708e/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/stephenyang/.android/build-cache/2e256629cff44c4d062b1edd7785279193846f71/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /Users/stephenyang/.android/build-cache/fa2da3f7f839895dbb343b0d1badc688afcc122e/output/AndroidManifest.xml:29:5-20
+	android:label
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:20:9-41
+	android:supportsRtl
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:22:9-35
+	android:roundIcon
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:21:9-54
+	android:allowBackup
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:18:9-35
+	android:icon
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:19:9-43
+	android:theme
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:23:9-40
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:33:9-35:55
+	android:value
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:35:13-52
+	android:name
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:34:13-58
+activity#com.example.stephenyang.mygmapapp.MapsActivity
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:37:9-45:20
+	android:label
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:39:13-56
+	android:name
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:38:13-41
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:40:13-44:29
+action#android.intent.action.MAIN
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:41:17-69
+	android:name
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:41:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:43:17-77
+	android:name
+		ADDED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml:43:27-74
+uses-sdk
+INJECTED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:multidex:1.0.1] /Users/stephenyang/.android/build-cache/18562878b00406b69300a6c61695745c5cd3c661/output/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/stephenyang/.android/build-cache/8cfe801eafeb5cb455fdad24ed1fadd694932bda/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/stephenyang/.android/build-cache/646943d1d6c22d0d9ba885af6f5a285de2f23414/output/AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services-maps:10.2.4] /Users/stephenyang/.android/build-cache/0de03ccf9bf263279a7225813cd05749aff65621/output/AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-base:10.2.4] /Users/stephenyang/.android/build-cache/f9aef6fa84bb522d6493657346e197c24f19629b/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tasks:10.2.4] /Users/stephenyang/.android/build-cache/a2d8d14a3c53fa029816763e1ce9a76dc3d8a104/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:10.2.4] /Users/stephenyang/.android/build-cache/f4dd528a672084dce08de855605792f2dadca0d9/output/AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:support-v4:25.3.1] /Users/stephenyang/.android/build-cache/9b04d8aa1f473b17858620868f80700a39d99594/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/stephenyang/.android/build-cache/99003cf072e18c21d6dd9b30e7810bb6fb1ef284/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/stephenyang/.android/build-cache/2126c61e74488bbed92014be2190ba47b03329de/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/stephenyang/.android/build-cache/3a2f1550fcd6c48a1ffe1bdb73ed06c09d0f708e/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/stephenyang/.android/build-cache/2e256629cff44c4d062b1edd7785279193846f71/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.1] /Users/stephenyang/.android/build-cache/fa2da3f7f839895dbb343b0d1badc688afcc122e/output/AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/stephenyang/.android/build-cache/8cfe801eafeb5cb455fdad24ed1fadd694932bda/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/stephenyang/.android/build-cache/646943d1d6c22d0d9ba885af6f5a285de2f23414/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] /Users/stephenyang/.android/build-cache/9b04d8aa1f473b17858620868f80700a39d99594/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/stephenyang/.android/build-cache/99003cf072e18c21d6dd9b30e7810bb6fb1ef284/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/stephenyang/.android/build-cache/2126c61e74488bbed92014be2190ba47b03329de/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/stephenyang/.android/build-cache/3a2f1550fcd6c48a1ffe1bdb73ed06c09d0f708e/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/stephenyang/.android/build-cache/2e256629cff44c4d062b1edd7785279193846f71/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /Users/stephenyang/.android/build-cache/fa2da3f7f839895dbb343b0d1badc688afcc122e/output/AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/AndroidManifest.xml:26:9-47
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:10.2.4] /Users/stephenyang/.android/build-cache/0de03ccf9bf263279a7225813cd05749aff65621/output/AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:10.2.4] /Users/stephenyang/.android/build-cache/0de03ccf9bf263279a7225813cd05749aff65621/output/AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:10.2.4] /Users/stephenyang/.android/build-cache/0de03ccf9bf263279a7225813cd05749aff65621/output/AndroidManifest.xml:21:52-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:10.2.4] /Users/stephenyang/.android/build-cache/f9aef6fa84bb522d6493657346e197c24f19629b/output/AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:10.2.4] /Users/stephenyang/.android/build-cache/f9aef6fa84bb522d6493657346e197c24f19629b/output/AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:10.2.4] /Users/stephenyang/.android/build-cache/f9aef6fa84bb522d6493657346e197c24f19629b/output/AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:10.2.4] /Users/stephenyang/.android/build-cache/f9aef6fa84bb522d6493657346e197c24f19629b/output/AndroidManifest.xml:19:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:10.2.4] /Users/stephenyang/.android/build-cache/f4dd528a672084dce08de855605792f2dadca0d9/output/AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:10.2.4] /Users/stephenyang/.android/build-cache/f4dd528a672084dce08de855605792f2dadca0d9/output/AndroidManifest.xml:20:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:10.2.4] /Users/stephenyang/.android/build-cache/f4dd528a672084dce08de855605792f2dadca0d9/output/AndroidManifest.xml:20:20-65
