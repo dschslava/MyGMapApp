@@ -30,14 +30,10 @@ import java.io.PrintWriter;
 import java.util.concurrent.TimeUnit;
 
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback/*, LocationListener,
-        GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener*/{
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
 
     private GoogleMap mMap;
-   /* GoogleApiClient client = new GoogleApiClient.Builder(this).addConnectionCallbacks(this)
-            .addOnConnectionFailedListener(this)
-            .addApi(LocationServices.API).build();*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +43,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        //client.connect();
     }
     /*
      * Manipulates the map once available.
@@ -66,34 +61,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         final LatLng birth = new LatLng(41.805609, -87.920693);
         mMap.addMarker(new MarkerOptions().position(birth).title("Born here"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(birth));
-
-      /*  try{
-            LatLng currentLocation = new LatLng(LocationServices.FusedLocationApi.getLastLocation(client).getLatitude(),
-                    LocationServices.FusedLocationApi.getLastLocation(client).getLongitude());
-            mMap.addMarker(new MarkerOptions().position(currentLocation).title("Current location"));
+        try {
+            mMap.setMyLocationEnabled(true);
         }
-        catch(SecurityException e){
-            Log.d("MyGMap", "no permissions");
-        }*/
+        catch (SecurityException s){
+            Log.d("MyGMap", "no location permissions");
+        }
     }
 
-   /* @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-
-    }*/
 }
