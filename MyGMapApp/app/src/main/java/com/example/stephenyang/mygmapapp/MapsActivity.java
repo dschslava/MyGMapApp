@@ -30,14 +30,14 @@ import java.io.PrintWriter;
 import java.util.concurrent.TimeUnit;
 
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener,
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback/*, LocationListener,
         GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener{
+        GoogleApiClient.OnConnectionFailedListener*/{
 
     private GoogleMap mMap;
-    GoogleApiClient client = new GoogleApiClient.Builder(this).addConnectionCallbacks(this)
+   /* GoogleApiClient client = new GoogleApiClient.Builder(this).addConnectionCallbacks(this)
             .addOnConnectionFailedListener(this)
-            .addApi(LocationServices.API).build();
+            .addApi(LocationServices.API).build();*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        client.connect();
+        //client.connect();
     }
     /*
      * Manipulates the map once available.
@@ -67,17 +67,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(birth).title("Born here"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(birth));
 
-        try{
+      /*  try{
             LatLng currentLocation = new LatLng(LocationServices.FusedLocationApi.getLastLocation(client).getLatitude(),
                     LocationServices.FusedLocationApi.getLastLocation(client).getLongitude());
             mMap.addMarker(new MarkerOptions().position(currentLocation).title("Current location"));
         }
         catch(SecurityException e){
             Log.d("MyGMap", "no permissions");
-        }
+        }*/
     }
 
-    @Override
+   /* @Override
     public void onConnected(@Nullable Bundle bundle) {
 
     }
@@ -95,5 +95,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onLocationChanged(Location location) {
 
-    }
+    }*/
 }
