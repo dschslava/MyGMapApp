@@ -6,9 +6,11 @@ android/support/v4/view/MenuCompat.class
 android/support/v4/media/session/MediaControllerCompat.class
 android/support/v4/net/ConnectivityManagerCompatApi24.class
 android/support/annotation/IdRes.class
+com/google/android/gms/internal/zzasi.class
 android/support/v4/view/ViewPager$4.class
 android/support/annotation/ColorInt.class
 android/support/annotation/RawRes.class
+com/google/android/gms/location/FusedLocationProviderApi.class
 android/support/v4/widget/MaterialProgressDrawable$3.class
 android/support/v4/net/ConnectivityManagerCompat$HoneycombMR2ConnectivityManagerCompatImpl.class
 android/support/multidex/MultiDexExtractor.class
@@ -32,6 +34,7 @@ com/google/android/gms/common/SignInButton$ColorScheme.class
 android/support/v4/media/MediaMetadataCompat$Builder.class
 android/support/v7/app/ActionBarDrawerToggle$Delegate.class
 android/support/v4/view/ViewCompatLollipop$OnApplyWindowInsetsListenerBridge.class
+com/google/android/gms/internal/zzasb.class
 android/support/v7/widget/LinearLayoutCompat$OrientationMode.class
 android/support/multidex/MultiDex.class
 android/support/v4/app/FragmentActivity.class
@@ -229,6 +232,7 @@ android/support/v4/view/ViewPager$PagerObserver.class
 android/support/v4/view/PagerAdapter.class
 com/google/android/gms/common/internal/ReflectedParcelable.class
 android/support/v4/app/NotificationCompatApi21.class
+com/google/android/gms/location/GeofencingApi.class
 com/google/android/gms/common/zze.class
 com/google/android/gms/common/internal/zzak.class
 android/support/v4/view/ViewPager$3.class
@@ -319,6 +323,7 @@ android/support/v4/media/MediaBrowserCompatApi21$MediaItem.class
 android/support/annotation/RestrictTo.class
 android/support/v4/app/NotificationBuilderWithActions.class
 android/support/v4/view/ViewConfigurationCompat.class
+com/google/android/gms/location/LocationStatusCodes.class
 android/support/v4/view/ViewCompatICSMr1.class
 android/support/v4/view/ViewCompat$FocusDirection.class
 android/support/v7/appcompat/R$dimen.class

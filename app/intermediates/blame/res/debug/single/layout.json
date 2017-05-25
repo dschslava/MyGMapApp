@@ -68,6 +68,10 @@
         "source": "/Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/res/layout/abc_action_bar_title_item.xml"
     },
     {
+        "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout/place_autocomplete_item_prediction.xml",
+        "source": "/Users/stephenyang/.android/build-cache/79f3abd7e3391636275286301ba2086de0144cb0/output/res/layout/place_autocomplete_item_prediction.xml"
+    },
+    {
         "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
         "source": "/Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/res/layout/abc_expanded_menu_layout.xml"
     },
@@ -82,6 +86,10 @@
     {
         "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout/activity_maps.xml",
         "source": "/Users/stephenyang/GitHub/MyGMapApp/MyGMapApp/app/src/main/res/layout/activity_maps.xml"
+    },
+    {
+        "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout/place_autocomplete_fragment.xml",
+        "source": "/Users/stephenyang/.android/build-cache/79f3abd7e3391636275286301ba2086de0144cb0/output/res/layout/place_autocomplete_fragment.xml"
     },
     {
         "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
@@ -110,6 +118,10 @@
     {
         "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
         "source": "/Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout/place_autocomplete_progress.xml",
+        "source": "/Users/stephenyang/.android/build-cache/79f3abd7e3391636275286301ba2086de0144cb0/output/res/layout/place_autocomplete_progress.xml"
     },
     {
         "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
@@ -142,6 +154,10 @@
     {
         "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
         "source": "/Users/stephenyang/.android/build-cache/b5284a0062173fc711bd1287a2a57769a5db2546/output/res/layout/abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout/place_autocomplete_item_powered_by_google.xml",
+        "source": "/Users/stephenyang/.android/build-cache/79f3abd7e3391636275286301ba2086de0144cb0/output/res/layout/place_autocomplete_item_powered_by_google.xml"
     },
     {
         "merged": "/Users/stephenyang/GitHub/MyGMapApp/app/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",

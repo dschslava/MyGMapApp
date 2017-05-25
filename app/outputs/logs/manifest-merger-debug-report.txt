@@ -45,6 +45,7 @@ MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/stephenyang/.androi
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/stephenyang/.android/build-cache/8cfe801eafeb5cb455fdad24ed1fadd694932bda/output/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/stephenyang/.android/build-cache/646943d1d6c22d0d9ba885af6f5a285de2f23414/output/AndroidManifest.xml:26:5-20
 MERGED from [com.google.android.gms:play-services-maps:10.2.4] /Users/stephenyang/.android/build-cache/0de03ccf9bf263279a7225813cd05749aff65621/output/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-location:10.2.4] /Users/stephenyang/.android/build-cache/98f3765ecd80451751b0c3f4dfb45a9c09a71f8a/output/AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-base:10.2.4] /Users/stephenyang/.android/build-cache/f9aef6fa84bb522d6493657346e197c24f19629b/output/AndroidManifest.xml:18:5-20:19
 MERGED from [com.google.android.gms:play-services-tasks:10.2.4] /Users/stephenyang/.android/build-cache/a2d8d14a3c53fa029816763e1ce9a76dc3d8a104/output/AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-basement:10.2.4] /Users/stephenyang/.android/build-cache/f4dd528a672084dce08de855605792f2dadca0d9/output/AndroidManifest.xml:19:5-21:19
@@ -95,6 +96,7 @@ MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/stephenyang/.androi
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/stephenyang/.android/build-cache/8cfe801eafeb5cb455fdad24ed1fadd694932bda/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/stephenyang/.android/build-cache/646943d1d6c22d0d9ba885af6f5a285de2f23414/output/AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.gms:play-services-maps:10.2.4] /Users/stephenyang/.android/build-cache/0de03ccf9bf263279a7225813cd05749aff65621/output/AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-location:10.2.4] /Users/stephenyang/.android/build-cache/98f3765ecd80451751b0c3f4dfb45a9c09a71f8a/output/AndroidManifest.xml:3:5-43
 MERGED from [com.google.android.gms:play-services-base:10.2.4] /Users/stephenyang/.android/build-cache/f9aef6fa84bb522d6493657346e197c24f19629b/output/AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-tasks:10.2.4] /Users/stephenyang/.android/build-cache/a2d8d14a3c53fa029816763e1ce9a76dc3d8a104/output/AndroidManifest.xml:3:5-43
 MERGED from [com.google.android.gms:play-services-basement:10.2.4] /Users/stephenyang/.android/build-cache/f4dd528a672084dce08de855605792f2dadca0d9/output/AndroidManifest.xml:17:5-43
