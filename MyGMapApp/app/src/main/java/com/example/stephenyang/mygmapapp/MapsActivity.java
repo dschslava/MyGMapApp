@@ -1,5 +1,6 @@
 package com.example.stephenyang.mygmapapp;
 
+import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +27,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        Context.getSystemService(Context.LOCATION_SERVICE);
     }
     /*
      * Manipulates the map once available.
