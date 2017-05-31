@@ -276,7 +276,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         Log.d("MyGMap", "se getlocation gps");
                     }
                     break;
-                case TEMPORARILY_UNAVAILABLE: Log.d("MyGMap", "Network out of service");
+                case TEMPORARILY_UNAVAILABLE: Log.d("MyGMap", "Network temporarily out of service");
                     try {
                         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES,
                                 MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGPS);
