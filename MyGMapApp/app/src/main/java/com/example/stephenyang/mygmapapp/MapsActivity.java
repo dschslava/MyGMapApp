@@ -300,4 +300,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 location.getLongitude())));
         Log.d("MyGMap", "location marked");
     }
+
+    public void searchLocation(View v){
+        //send search query to gmaps
+        //will return lat long
+        //drop marker
+        //move camera
+    }
 }
