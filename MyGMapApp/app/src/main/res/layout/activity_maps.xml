@@ -14,16 +14,13 @@
         android:id="@+id/mapView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/track"
-        android:layout_constraintRight_toLeftOf="@+id/track"
         android:onClick="changeMapView"
         android:text="Map View" />
     <Button
         android:id="@+id/track"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/mapView"
-        android:onClick=""
+        android:onClick="getLocation"
         android:text="Track"/>
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
