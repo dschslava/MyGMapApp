@@ -322,7 +322,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void searchLocation(View v){
-        //send search query to gmaps
+        //send search query to gmaps api
 
         //will return lat long
         //drop marker
