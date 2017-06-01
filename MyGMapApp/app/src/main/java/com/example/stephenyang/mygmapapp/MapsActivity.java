@@ -313,7 +313,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.d("MyGMap", "location marked");
             Toast.makeText(this, "" + location.getLatitude() +
                     location.getLongitude(), Toast.LENGTH_SHORT);
-            CameraUpdate update = CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(),
+            CameraUpdate update = CameraUpdateFactory.newLatLngZoom(
+                    new LatLng(location.getLatitude(),
             location.getLongitude()), MY_LOC_ZOOM_FACTOR);
             mMap.animateCamera(update);
 
