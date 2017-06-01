@@ -13,6 +13,7 @@ import android.location.LocationListener;
 import android.widget.Toast;
 
 //import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -34,6 +35,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private boolean canGetLocation = false;
     private static final long MIN_TIME_BW_UPDATES = 1000 * 5 * 1;
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 5;
+    private static final float MY_LOC_ZOOM_FACTOR = 17;
 
 
     @Override
@@ -155,7 +157,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (isNetworkEnabled){
                     Log.d("MyGMap", "getlocation() Network enabled, requesting loc updates");
                     try {
-                        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME_BW_UPDATES,
+                        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+                                MIN_TIME_BW_UPDATES,
                                 MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
 
                         Log.d("MyGMap", "getLocation() network location update successful");
@@ -169,7 +172,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (isGPSEnabled){
                     Log.d("MyGMap", "getlocation() GPS enabled, requesting loc updates");
                     try {
-                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES,
+                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                                MIN_TIME_BW_UPDATES,
                                 MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGPS);
 
                         Log.d("MyGMap", "getLocation() gps location update successful");
@@ -187,7 +191,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             e.printStackTrace();
         }
     }
-    android.location.LocationListener locationListenerGPS = new android.location.LocationListener() {
+    android.location.LocationListener locationListenerGPS =
+            new android.location.LocationListener() {
         public void onLocationChanged(Location location) {
             // Called when a new location is found by the network location provider.
             //output in log d that gps works
@@ -211,7 +216,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     break;
                 case OUT_OF_SERVICE: Log.d("MyGMap", "GPS out of service");
                     try {
-                        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME_BW_UPDATES,
+                        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+                                MIN_TIME_BW_UPDATES,
                                 MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
 
                         Log.d("MyGMap", "getLocation() network location update successful");
@@ -222,7 +228,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     break;
                 case TEMPORARILY_UNAVAILABLE: Log.d("MyGMap", "GPS temporarily unavailable");
                     try {
-                        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME_BW_UPDATES,
+                        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+                                MIN_TIME_BW_UPDATES,
                                 MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
 
                         Log.d("MyGMap", "getLocation() network location update successful");
@@ -240,15 +247,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         public void onProviderDisabled(String provider) {}
     };
 
-    android.location.LocationListener locationListenerNetwork = new android.location.LocationListener(){
+    android.location.LocationListener locationListenerNetwork =
+            new android.location.LocationListener(){
         public void onLocationChanged(Location location) {
             // Called when a new location is found by the network location provider.
             //output in log d that gps works
             dropMarker(location);
-
+            locationManager.removeUpdates(locationListenerGPS);
             //relaunch network provider request (requestLocationUpdates)
             try {
-                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME_BW_UPDATES,
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+                        MIN_TIME_BW_UPDATES,
                         MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
 
                 Log.d("MyGMap", "getLocation() network location update successful");
@@ -267,7 +276,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     break;
                 case OUT_OF_SERVICE: Log.d("MyGMap", "Network out of service");
                     try {
-                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES,
+                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                                MIN_TIME_BW_UPDATES,
                                 MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGPS);
 
                         Log.d("MyGMap", "getLocation() gps location update successful");
@@ -278,7 +288,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     break;
                 case TEMPORARILY_UNAVAILABLE: Log.d("MyGMap", "Network temporarily out of service");
                     try {
-                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES,
+                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                                MIN_TIME_BW_UPDATES,
                                 MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGPS);
 
                         Log.d("MyGMap", "getLocation() gps location update successful");
@@ -296,13 +307,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         public void onProviderDisabled(String provider) {}
     };
     public void dropMarker(Location location){
-        mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(),
-                location.getLongitude())));
-        Log.d("MyGMap", "location marked");
+        if (locationManager != null){
+            mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(),
+                    location.getLongitude())));
+            Log.d("MyGMap", "location marked");
+            Toast.makeText(this, "" + location.getLatitude() +
+                    location.getLongitude(), Toast.LENGTH_SHORT);
+            CameraUpdate update = CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(),
+            location.getLongitude()), MY_LOC_ZOOM_FACTOR);
+            mMap.animateCamera(update);
+
+        }
     }
 
     public void searchLocation(View v){
         //send search query to gmaps
+
         //will return lat long
         //drop marker
         //move camera
