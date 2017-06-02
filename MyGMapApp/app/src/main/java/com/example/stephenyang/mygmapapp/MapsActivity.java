@@ -18,12 +18,15 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import static android.location.LocationProvider.AVAILABLE;
 import static android.location.LocationProvider.OUT_OF_SERVICE;
 import static android.location.LocationProvider.TEMPORARILY_UNAVAILABLE;
+import static com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_AZURE;
+import static com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_RED;
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
@@ -36,6 +39,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final long MIN_TIME_BW_UPDATES = 1000 * 5 * 1;
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 5;
     private static final float MY_LOC_ZOOM_FACTOR = 17;
+    private float colour = HUE_RED;
 
 
     @Override
@@ -213,9 +217,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //case default ^
             switch(status){
                 case AVAILABLE: Log.d("MyGMap", "GPS available");
+                    try {
+                        colour = HUE_RED;
+                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                                MIN_TIME_BW_UPDATES,
+                                MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
+
+                        Log.d("MyGMap", "getLocation() network location update successful");
+                    }
+                    catch (SecurityException s){
+                        Log.d("MyGMap", "se getlocation net");
+                    }
                     break;
                 case OUT_OF_SERVICE: Log.d("MyGMap", "GPS out of service");
                     try {
+                        colour = HUE_AZURE;
                         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
                                 MIN_TIME_BW_UPDATES,
                                 MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
@@ -228,6 +244,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     break;
                 case TEMPORARILY_UNAVAILABLE: Log.d("MyGMap", "GPS temporarily unavailable");
                     try {
+                        colour = HUE_AZURE;
                         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
                                 MIN_TIME_BW_UPDATES,
                                 MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
@@ -256,6 +273,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             locationManager.removeUpdates(locationListenerGPS);
             //relaunch network provider request (requestLocationUpdates)
             try {
+                colour = HUE_AZURE;
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
                         MIN_TIME_BW_UPDATES,
                         MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
@@ -276,6 +294,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     break;
                 case OUT_OF_SERVICE: Log.d("MyGMap", "Network out of service");
                     try {
+                        colour = HUE_RED;
                         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
                                 MIN_TIME_BW_UPDATES,
                                 MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGPS);
@@ -288,6 +307,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     break;
                 case TEMPORARILY_UNAVAILABLE: Log.d("MyGMap", "Network temporarily out of service");
                     try {
+                        colour = HUE_RED;
                         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
                                 MIN_TIME_BW_UPDATES,
                                 MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGPS);
@@ -309,7 +329,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void dropMarker(Location location){
         if (locationManager != null){
             mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(),
-                    location.getLongitude())));
+                    location.getLongitude())).icon(BitmapDescriptorFactory.defaultMarker(colour)));
             Log.d("MyGMap", "location marked");
             Toast.makeText(this, "" + location.getLatitude() +
                     location.getLongitude(), Toast.LENGTH_SHORT);
@@ -317,6 +337,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     new LatLng(location.getLatitude(),
             location.getLongitude()), MY_LOC_ZOOM_FACTOR);
             mMap.animateCamera(update);
+            //network/gps markers need to be diff colour
 
         }
     }
