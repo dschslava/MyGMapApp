@@ -40,6 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private boolean isGPSEnabled = false;
     private boolean isNetworkEnabled = false;
     private boolean canGetLocation = false;
+    private boolean tracking = false;
     private static final long MIN_TIME_BW_UPDATES = 1000 * 5 * 1;
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 5;
     private static final float MY_LOC_ZOOM_FACTOR = 17;
@@ -115,11 +116,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void getLocation(View v) {
-        try {
-            locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-            //get gps and network status
-            isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-            isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        if (tracking) {
+            tracking = false;
+            try {
+                locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+                //get gps and network status
+                isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 /*
             LocationListener locationListenerNetwork = new LocationListener() {
                 public void onLocationChanged(Location location) {
@@ -154,50 +157,55 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 public void onProviderDisabled(String provider) {}
             };*/
 
-            if (isGPSEnabled) {
-                Log.d("MyGMap", "getlocation() GPS enabled");
-            }
-            if (isNetworkEnabled) {
-                Log.d("MyGMap", "getlocation() Network enabled");
-            }
-            if (!isGPSEnabled && !isNetworkEnabled) {
-                Log.d("MyGMap", "enable your location stuff mate there are nO PROVIDERS");
-            } else {
-                this.canGetLocation = true;
-
-                if (isNetworkEnabled) {
-                    Log.d("MyGMap", "getlocation() Network enabled, requesting loc updates");
-                    try {
-                        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
-                                MIN_TIME_BW_UPDATES,
-                                MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
-
-                        Log.d("MyGMap", "getLocation() network location update successful");
-                        Toast.makeText(this, "Using network for location", Toast.LENGTH_SHORT);
-                    } catch (SecurityException s) {
-                        Log.d("MyGMap", "se getlocation net");
-                    }
-                }
-
                 if (isGPSEnabled) {
-                    Log.d("MyGMap", "getlocation() GPS enabled, requesting loc updates");
-                    try {
-                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                                MIN_TIME_BW_UPDATES,
-                                MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGPS);
+                    Log.d("MyGMap", "getlocation() GPS enabled");
+                }
+                if (isNetworkEnabled) {
+                    Log.d("MyGMap", "getlocation() Network enabled");
+                }
+                if (!isGPSEnabled && !isNetworkEnabled) {
+                    Log.d("MyGMap", "enable your location stuff mate there are nO PROVIDERS");
+                } else {
+                    this.canGetLocation = true;
 
-                        Log.d("MyGMap", "getLocation() gps location update successful");
-                        Toast.makeText(this, "Using GPS", Toast.LENGTH_SHORT);
-                    } catch (SecurityException s) {
-                        Log.d("MyGMap", "se getlocation gps");
+                    if (isNetworkEnabled) {
+                        Log.d("MyGMap", "getlocation() Network enabled, requesting loc updates");
+                        try {
+                            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+                                    MIN_TIME_BW_UPDATES,
+                                    MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
+
+                            Log.d("MyGMap", "getLocation() network location update successful");
+                            Toast.makeText(this, "Using network for location", Toast.LENGTH_SHORT);
+                        } catch (SecurityException s) {
+                            Log.d("MyGMap", "se getlocation net");
+                        }
+                    }
+
+                    if (isGPSEnabled) {
+                        Log.d("MyGMap", "getlocation() GPS enabled, requesting loc updates");
+                        try {
+                            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                                    MIN_TIME_BW_UPDATES,
+                                    MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGPS);
+
+                            Log.d("MyGMap", "getLocation() gps location update successful");
+                            Toast.makeText(this, "Using GPS", Toast.LENGTH_SHORT);
+                        } catch (SecurityException s) {
+                            Log.d("MyGMap", "se getlocation gps");
+                        }
                     }
                 }
-            }
 
-        } catch (Exception e) {
-            Log.d("MyGMap", "Exception caught in getLocation()");
-            e.printStackTrace();
+            } catch (Exception e) {
+                Log.d("MyGMap", "Exception caught in getLocation()");
+                e.printStackTrace();
+            }
         }
+        else{
+            tracking = true;
+        }
+
     }
 
     android.location.LocationListener locationListenerGPS =
