@@ -24,12 +24,13 @@
         android:onClick="getLocation"
         android:text="Track"/>
     </LinearLayout>
+
     <Button
         android:id="@+id/search_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick=""
-        android:text="Search"/>
+        android:onClick="searchLocation"
+        android:text="Search" />
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
