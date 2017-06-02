@@ -361,7 +361,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }else{
             userLocation = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
             Circle circle = mMap.addCircle(new CircleOptions().center(userLocation).
-                    radius(5).strokeColor(colour).strokeWidth(1).fillColor(colour));
+                    radius(3).strokeColor(colour).strokeWidth(1).fillColor(colour));
             CameraUpdate update = CameraUpdateFactory.newLatLngZoom(userLocation,MY_LOC_ZOOM_FACTOR);
             mMap.animateCamera(update);
 
