@@ -40,7 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private boolean isGPSEnabled = false;
     private boolean isNetworkEnabled = false;
     private boolean canGetLocation = false;
-    private boolean tracking = false;
+    private boolean tracking = true;
     private static final long MIN_TIME_BW_UPDATES = 1000 * 5 * 1;
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 5;
     private static final float MY_LOC_ZOOM_FACTOR = 17;
@@ -98,7 +98,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //
 //        }
         try {
-            mMap.setMyLocationEnabled(true);
+            mMap.setMyLocationEnabled(false);
 
         } catch (SecurityException s) {
             Log.d("MyGMap", "no location permissions");
@@ -117,45 +117,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void getLocation(View v) {
         if (tracking) {
-            tracking = false;
+            try{
+                tracking = false;
+                mMap.setMyLocationEnabled(true);
+                Log.d("MyGMap", "location tracking");
+            }
+            catch (SecurityException s){
+
+            }
             try {
                 locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
                 //get gps and network status
                 isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
                 isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-/*
-            LocationListener locationListenerNetwork = new LocationListener() {
-                public void onLocationChanged(Location location) {
-                    // Called when a new location is found by the network location provider.
-                    mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(),
-                            location.getLongitude())));
-                    Log.d("MyGMap", "network location marked");
-
-                }
-
-                public void onStatusChanged(String provider, int status, Bundle extras) {}
-
-                public void onProviderEnabled(String provider) {}
-
-                public void onProviderDisabled(String provider) {}
-            };
-
-           LocationListener locationListenerGPS = new LocationListener() {
-                public void onLocationChanged(Location location) {
-                    // Called when a new location is found by the network location provider.
-                    mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(),
-                            location.getLongitude())));
-                    Log.d("MyGMap", "gps location marked");
-                }
-
-                public void onStatusChanged(String provider, int status, Bundle extras) {
-                    Log.d("MyGMap", "gps status changed");
-                }
-
-                public void onProviderEnabled(String provider) {}
-
-                public void onProviderDisabled(String provider) {}
-            };*/
 
                 if (isGPSEnabled) {
                     Log.d("MyGMap", "getlocation() GPS enabled");
@@ -203,7 +177,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
         else{
-            tracking = true;
+
+            try {
+                tracking = true;
+                mMap.setMyLocationEnabled(false);
+                Log.d("MyGMap", "location not tracking");
+
+
+            }
+            catch (SecurityException s){
+
+            }
         }
 
     }
@@ -225,10 +209,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     //same comments as above
                     Log.d("MyGMap", "gps status changed");
                     //switch statement to check status input parameter
-                    //case LocationProvider.AVAILABLE ->output Log.d, toast
-                    //case LocationProvider.OUT_OF_SERVICE ->output log d, request updates from network
-                    //case LocationPovider.TEMPOARILY_UNAVAILABLE -> same ^
-                    //case default ^
                     switch (status) {
                         case AVAILABLE:
                             Log.d("MyGMap", "GPS available");
@@ -343,19 +323,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     };
     public void dropMarker(Location location){
         myLocation = location;
-      /*  if (locationManager != null){
-            mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(),
-                    location.getLongitude())).icon(BitmapDescriptorFactory.defaultMarker(colour)));
-            Log.d("MyGMap", "location marked");
-            Toast.makeText(this, "" + location.getLatitude() +
-                    location.getLongitude(), Toast.LENGTH_SHORT);
-            CameraUpdate update = CameraUpdateFactory.newLatLngZoom(
-                    new LatLng(location.getLatitude(),
-            location.getLongitude()), MY_LOC_ZOOM_FACTOR);
-            mMap.animateCamera(update);
-            //network/gps markers need to be diff colour
-
-        }*/
         if(myLocation == null){
             //Display a message vua log.d or toast
         }else{
@@ -375,4 +342,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //drop marker
         //move camera
     }
+
+    public void clearMarkers(View v){
+        mMap.clear();
+    }
+
 }
