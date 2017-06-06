@@ -2,6 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -13,35 +14,45 @@
 
     <Button
         android:id="@+id/mapView"
-        android:layout_width="195dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="changeMapView"
         android:text="Map View" />
     <Button
         android:id="@+id/track"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="getLocation"
         android:text="Track"/>
+        <Button
+            android:id="@+id/clear_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clearMarkers"
+            android:text="Clear" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width ="match_parent"
         android:layout_height = "wrap_content"
         android:weightSum="1">
+
+        <EditText
+            android:id="@+id/searchbox"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+
+            />
+
     <Button
         android:id="@+id/search_button"
-        android:layout_width="130dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:onClick="searchLocation"
         android:text="Search" />
 
-    <Button
-        android:id="@+id/clear__button"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:onClick="clearMarkers"
-        android:text="Clear" />
+
     </LinearLayout>
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"

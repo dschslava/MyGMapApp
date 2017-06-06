@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Geocoder;
 import android.location.Location;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -337,13 +338,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void searchLocation(View v){
         //send search query to gmaps api
-
+       // Geocoder.geocode();
+        //https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=AIzaSyCZROy6KjapgRHe5a7tggu86MWmUBeDUAk
         //will return lat long
         //drop marker
         //move camera
     }
 
     public void clearMarkers(View v){
+
         mMap.clear();
     }
 
