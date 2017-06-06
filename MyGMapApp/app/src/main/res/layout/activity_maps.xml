@@ -29,6 +29,13 @@
         android:layout_width ="match_parent"
         android:layout_height = "wrap_content"
         android:weightSum="1">
+
+        <EditText
+            android:id="@+id/searchbox"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            />
+
     <Button
         android:id="@+id/search_button"
         android:layout_width="130dp"
