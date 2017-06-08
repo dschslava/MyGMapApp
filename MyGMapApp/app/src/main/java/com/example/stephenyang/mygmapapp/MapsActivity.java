@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.support.v4.app.ActivityCompat;
@@ -28,6 +29,8 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
 
 import static android.location.LocationProvider.AVAILABLE;
@@ -40,6 +43,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private LocationManager locationManager;
     private Geocoder geocoder;
+    private List<Address> myList;
     private boolean isGPSEnabled = false;
     private boolean isNetworkEnabled = false;
     private boolean canGetLocation = false;
@@ -49,9 +53,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final float MY_LOC_ZOOM_FACTOR = 17;
     private Location myLocation;
     private LatLng userLocation;
+    private LatLng poi;
+    private LatLng closest;
     private int colour;
-    private int myList = 0;
-    EditText locationSearch = (EditText) findViewById(editSearch);
+    EditText locationSearch;
 
 
     @Override
@@ -64,6 +69,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        locationSearch = (EditText) findViewById(R.id.editSearch);
     }
 
     LocationListener locationListener = new LocationListener() {
@@ -338,7 +344,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    public void searchLocation(View v){
+    public void searchLocation(View v) throws IOException {
         //send search query to gmaps api
 
        // Geocoder.geocode();

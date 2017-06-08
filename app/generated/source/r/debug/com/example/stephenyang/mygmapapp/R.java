@@ -2161,6 +2161,7 @@ containing a value of this type.
         public static final int decor_content_parent=0x7f0b0050;
         public static final int default_activity_button=0x7f0b0035;
         public static final int disableHome=0x7f0b000c;
+        public static final int editSearch=0x7f0b0064;
         public static final int edit_query=0x7f0b0054;
         public static final int end=0x7f0b001b;
         public static final int end_padder=0x7f0b007c;
@@ -2212,7 +2213,6 @@ containing a value of this type.
         public static final int search_plate=0x7f0b005a;
         public static final int search_src_text=0x7f0b005b;
         public static final int search_voice_btn=0x7f0b005f;
-        public static final int searchbox=0x7f0b0064;
         public static final int select_dialog_listview=0x7f0b0060;
         public static final int shortcut=0x7f0b004a;
         public static final int showCustom=0x7f0b000f;

@@ -621,6 +621,7 @@ int id dark 0x7f0b002b
 int id decor_content_parent 0x7f0b0050
 int id default_activity_button 0x7f0b0035
 int id disableHome 0x7f0b000c
+int id editSearch 0x7f0b0064
 int id edit_query 0x7f0b0054
 int id end 0x7f0b001b
 int id end_padder 0x7f0b007c
@@ -672,7 +673,6 @@ int id search_mag_icon 0x7f0b0059
 int id search_plate 0x7f0b005a
 int id search_src_text 0x7f0b005b
 int id search_voice_btn 0x7f0b005f
-int id searchbox 0x7f0b0064
 int id select_dialog_listview 0x7f0b0060
 int id shortcut 0x7f0b004a
 int id showCustom 0x7f0b000f
