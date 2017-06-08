@@ -38,7 +38,7 @@
         android:weightSum="1">
 
         <EditText
-            android:id="@+id/searchbox"
+            android:id="@+id/editSearch"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
 

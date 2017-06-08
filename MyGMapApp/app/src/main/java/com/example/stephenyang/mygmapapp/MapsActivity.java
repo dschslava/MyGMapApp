@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.location.LocationManager;
 import android.location.LocationListener;
+import android.widget.EditText;
 import android.widget.Toast;
 
 //import com.google.android.gms.location.LocationListener;
@@ -27,9 +28,13 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Locale;
+
 import static android.location.LocationProvider.AVAILABLE;
 import static android.location.LocationProvider.OUT_OF_SERVICE;
 import static android.location.LocationProvider.TEMPORARILY_UNAVAILABLE;
+import static com.example.stephenyang.mygmapapp.R.id.editSearch;
+import static com.example.stephenyang.mygmapapp.R.id.searchbox;
 import static com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_AZURE;
 import static com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_RED;
 
@@ -38,6 +43,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private LocationManager locationManager;
+    private Geocoder geocoder;
     private boolean isGPSEnabled = false;
     private boolean isNetworkEnabled = false;
     private boolean canGetLocation = false;
@@ -48,6 +54,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Location myLocation;
     private LatLng userLocation;
     private int colour;
+    private int myList = 0;
+    EditText locationSearch = (EditText) findViewById(editSearch);
 
 
     @Override
@@ -95,9 +103,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         final LatLng birth = new LatLng(41.805609, -87.920693);
         mMap.addMarker(new MarkerOptions().position(birth).title("Born here"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(birth));
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)){
-//
-//        }
         try {
             mMap.setMyLocationEnabled(false);
 
@@ -122,60 +127,61 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 tracking = false;
                 mMap.setMyLocationEnabled(true);
                 Log.d("MyGMap", "location tracking");
+                try {
+                    locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+                    //get gps and network status
+                    isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                    isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+
+                    if (isGPSEnabled) {
+                        Log.d("MyGMap", "getlocation() GPS enabled");
+                    }
+                    if (isNetworkEnabled) {
+                        Log.d("MyGMap", "getlocation() Network enabled");
+                    }
+                    if (!isGPSEnabled && !isNetworkEnabled) {
+                        Log.d("MyGMap", "enable your location stuff mate there are nO PROVIDERS");
+                    } else {
+                        this.canGetLocation = true;
+
+                        if (isNetworkEnabled) {
+                            Log.d("MyGMap", "getlocation() Network enabled, requesting loc updates");
+                            try {
+                                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
+                                        MIN_TIME_BW_UPDATES,
+                                        MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
+
+                                Log.d("MyGMap", "getLocation() network location update successful");
+                                Toast.makeText(this, "Using network for location", Toast.LENGTH_SHORT);
+                            } catch (SecurityException s) {
+                                Log.d("MyGMap", "se getlocation net");
+                            }
+                        }
+
+                        if (isGPSEnabled) {
+                            Log.d("MyGMap", "getlocation() GPS enabled, requesting loc updates");
+                            try {
+                                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                                        MIN_TIME_BW_UPDATES,
+                                        MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGPS);
+
+                                Log.d("MyGMap", "getLocation() gps location update successful");
+                                Toast.makeText(this, "Using GPS", Toast.LENGTH_SHORT);
+                            } catch (SecurityException s) {
+                                Log.d("MyGMap", "se getlocation gps");
+                            }
+                        }
+                    }
+
+                } catch (Exception e) {
+                    Log.d("MyGMap", "Exception caught in getLocation()");
+                    e.printStackTrace();
+                }
             }
             catch (SecurityException s){
 
             }
-            try {
-                locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-                //get gps and network status
-                isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-                isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-                if (isGPSEnabled) {
-                    Log.d("MyGMap", "getlocation() GPS enabled");
-                }
-                if (isNetworkEnabled) {
-                    Log.d("MyGMap", "getlocation() Network enabled");
-                }
-                if (!isGPSEnabled && !isNetworkEnabled) {
-                    Log.d("MyGMap", "enable your location stuff mate there are nO PROVIDERS");
-                } else {
-                    this.canGetLocation = true;
-
-                    if (isNetworkEnabled) {
-                        Log.d("MyGMap", "getlocation() Network enabled, requesting loc updates");
-                        try {
-                            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
-                                    MIN_TIME_BW_UPDATES,
-                                    MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
-
-                            Log.d("MyGMap", "getLocation() network location update successful");
-                            Toast.makeText(this, "Using network for location", Toast.LENGTH_SHORT);
-                        } catch (SecurityException s) {
-                            Log.d("MyGMap", "se getlocation net");
-                        }
-                    }
-
-                    if (isGPSEnabled) {
-                        Log.d("MyGMap", "getlocation() GPS enabled, requesting loc updates");
-                        try {
-                            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                                    MIN_TIME_BW_UPDATES,
-                                    MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGPS);
-
-                            Log.d("MyGMap", "getLocation() gps location update successful");
-                            Toast.makeText(this, "Using GPS", Toast.LENGTH_SHORT);
-                        } catch (SecurityException s) {
-                            Log.d("MyGMap", "se getlocation gps");
-                        }
-                    }
-                }
-
-            } catch (Exception e) {
-                Log.d("MyGMap", "Exception caught in getLocation()");
-                e.printStackTrace();
-            }
         }
         else{
 
@@ -198,8 +204,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 public void onLocationChanged(Location location) {
                     // Called when a new location is found by the network location provider.
                     //output in log d that gps works
-                    colour = Color.RED;
-                    dropMarker(location);
+                        colour = Color.RED;
+                        dropMarker(location);
 
                     //remove network location updates. (see api)
                     locationManager.removeUpdates(locationListenerNetwork);
@@ -338,12 +344,43 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void searchLocation(View v){
         //send search query to gmaps api
+
        // Geocoder.geocode();
         //https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=AIzaSyCZROy6KjapgRHe5a7tggu86MWmUBeDUAk
         //will return lat long
         //drop marker
-        //move camera
+        //move camera public void searchMap(View v) throws IOException {
+        mMap.clear();
+        if (locationSearch.getText().toString()== null) {
+            return;
+        }
+        geocoder = new Geocoder(this, Locale.getDefault());
+        if (geocoder.isPresent()) {
+            Log.d("MyGMap", locationSearch.getText().toString());
+            try {
+                Log.d("MyGMap", "geocoder present");
+                myList = geocoder.getFromLocationName(locationSearch.getText().toString(), 25,
+                        myLocation.getLatitude() - 0.07246377, myLocation.getLongitude()
+                                - 0.09157509, myLocation.getLatitude() + 0.07246377,
+                        myLocation.getLongitude() + 0.09157509);
+                Log.d("MyGMap", "geocoder through");
+            } catch (SecurityException e) {
+                Log.d("MyGMap", "SE gecodoer");
+
+            }
+            for (int i = 0; i < myList.size(); i++) {
+                Log.d("MyGMap", "geocoder for loop");
+                closest = new LatLng(myList.get(0).getLatitude(), myList.get(0).getLatitude());
+                poi = new LatLng(myList.get(i).getLatitude(), myList.get(i).getLongitude());
+                mMap.addMarker(new MarkerOptions().position(poi).title(locationSearch.getText().toString()));
+            }
+            // CameraUpdate update = CameraUpdateFactory.newLatLngZoom(poi, MY_LOC_ZOOM_FACTOR);
+            // mMap.animateCamera(update);
+        } else {
+
+        }
     }
+
 
     public void clearMarkers(View v){
 
