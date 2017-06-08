@@ -338,7 +338,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             userLocation = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
             Circle circle = mMap.addCircle(new CircleOptions().center(userLocation).
                     radius(3).strokeColor(colour).strokeWidth(1).fillColor(colour));
-            CameraUpdate update = CameraUpdateFactory.newLatLngZoom(userLocation,MY_LOC_ZOOM_FACTOR);
+            CameraUpdate update = CameraUpdateFactory
+                    .newLatLngZoom(userLocation,MY_LOC_ZOOM_FACTOR);
             mMap.animateCamera(update);
 
         }
@@ -348,7 +349,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //send search query to gmaps api
 
        // Geocoder.geocode();
-        //https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=AIzaSyCZROy6KjapgRHe5a7tggu86MWmUBeDUAk
+        //https://maps.googleapis.com/maps/api/place/textsearch/
+        // json?query=123+main+street&key=AIzaSyCZROy6KjapgRHe5a7tggu86MWmUBeDUAk
         //will return lat long
         //drop marker
         //move camera public void searchMap(View v) throws IOException {
@@ -361,11 +363,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.d("MyGMap", locationSearch.getText().toString());
             try {
                 Log.d("MyGMap", "geocoder present");
-                myList = geocoder.getFromLocationName(locationSearch.getText().toString(), 25/*,
-                        myLocation.getLatitude() - 0.07246377,
-                        myLocation.getLongitude() - 0.09157509,
-                        myLocation.getLatitude() + 0.07246377,
-                        myLocation.getLongitude() + 0.09157509*/);
+                myList = geocoder.getFromLocationName(locationSearch.getText().toString(), 5);
 
                 Log.d("MyGMap", "geocoder through");
             } catch (SecurityException e) {
@@ -376,10 +374,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Log.d("MyGMap", "geocoder for loop");
                 closest = new LatLng(myList.get(0).getLatitude(), myList.get(0).getLatitude());
                 poi = new LatLng(myList.get(i).getLatitude(), myList.get(i).getLongitude());
-                mMap.addMarker(new MarkerOptions().position(poi).title(locationSearch.getText().toString()));
+                mMap.addMarker(new MarkerOptions().position(poi)
+                        .title(locationSearch.getText().toString()));
             }
-            // CameraUpdate update = CameraUpdateFactory.newLatLngZoom(poi, MY_LOC_ZOOM_FACTOR);
-            // mMap.animateCamera(update);
+            CameraUpdate update = CameraUpdateFactory.newLatLngZoom(poi, MY_LOC_ZOOM_FACTOR);
+            mMap.animateCamera(update);
         } else {
 
         }
