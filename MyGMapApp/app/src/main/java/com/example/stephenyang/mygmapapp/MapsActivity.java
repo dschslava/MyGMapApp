@@ -355,7 +355,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //drop marker
         //move camera public void searchMap(View v) throws IOException {
         mMap.clear();
-        if (locationSearch.getText().toString()== null) {
+        if (locationSearch.getText().toString() == null) {
             return;
         }
         geocoder = new Geocoder(this, Locale.getDefault());
