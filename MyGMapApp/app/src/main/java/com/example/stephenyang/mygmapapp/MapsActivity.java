@@ -34,10 +34,6 @@ import static android.location.LocationProvider.AVAILABLE;
 import static android.location.LocationProvider.OUT_OF_SERVICE;
 import static android.location.LocationProvider.TEMPORARILY_UNAVAILABLE;
 import static com.example.stephenyang.mygmapapp.R.id.editSearch;
-import static com.example.stephenyang.mygmapapp.R.id.searchbox;
-import static com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_AZURE;
-import static com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_RED;
-
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
