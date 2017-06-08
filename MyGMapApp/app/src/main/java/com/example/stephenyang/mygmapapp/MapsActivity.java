@@ -361,10 +361,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.d("MyGMap", locationSearch.getText().toString());
             try {
                 Log.d("MyGMap", "geocoder present");
-                myList = geocoder.getFromLocationName(locationSearch.getText().toString(), 25,
-                        myLocation.getLatitude() - 0.07246377, myLocation.getLongitude()
-                                - 0.09157509, myLocation.getLatitude() + 0.07246377,
-                        myLocation.getLongitude() + 0.09157509);
+                myList = geocoder.getFromLocationName(locationSearch.getText().toString(), 25/*,
+                        myLocation.getLatitude() - 0.07246377,
+                        myLocation.getLongitude() - 0.09157509,
+                        myLocation.getLatitude() + 0.07246377,
+                        myLocation.getLongitude() + 0.09157509*/);
+
                 Log.d("MyGMap", "geocoder through");
             } catch (SecurityException e) {
                 Log.d("MyGMap", "SE gecodoer");
