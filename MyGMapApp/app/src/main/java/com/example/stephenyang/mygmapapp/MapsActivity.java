@@ -355,20 +355,33 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //drop marker
         //move camera public void searchMap(View v) throws IOException {
         mMap.clear();
-        if (locationSearch.getText().toString() == null) {
-            return;
+        try {
+            mMap.setMyLocationEnabled(true);
+        }
+        catch (SecurityException s){
+
         }
         geocoder = new Geocoder(this, Locale.getDefault());
         if (geocoder.isPresent()) {
+            if (locationSearch.getText().toString() == null) {
+                return;
+            }
             Log.d("MyGMap", locationSearch.getText().toString());
             try {
                 Log.d("MyGMap", "geocoder present");
-                myList = geocoder.getFromLocationName(locationSearch.getText().toString(), 5);
+                myList = geocoder.getFromLocationName(locationSearch.getText().toString(), 25,
+                        myLocation.getLatitude() - 0.07246377,
+                        myLocation.getLongitude() - 0.09157509,
+                        myLocation.getLatitude() + 0.07246377,
+                        myLocation.getLongitude() + 0.09157509);
 
                 Log.d("MyGMap", "geocoder through");
             } catch (SecurityException e) {
                 Log.d("MyGMap", "SE gecodoer");
 
+            }
+            if (myList.size() == 0){
+                return;
             }
             for (int i = 0; i < myList.size(); i++) {
                 Log.d("MyGMap", "geocoder for loop");
