@@ -358,14 +358,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.clear();
         try {
             mMap.setMyLocationEnabled(true);
-            
-
         }
         catch (SecurityException s){
 
         }
 
         geocoder = new Geocoder(this, Locale.US);
+        locationSearch = (EditText) findViewById(R.id.editSearch);
+
         if (geocoder.isPresent()) {
 
             Log.d("MyGMap", locationSearch.getText().toString());
