@@ -346,6 +346,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void searchLocation(View v) throws IOException {
+        //String address = "Canyon Crest Academy, San Diego, CA";
         //send search query to gmaps api
 
        // Geocoder.geocode();
@@ -353,43 +354,48 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // json?query=123+main+street&key=AIzaSyCZROy6KjapgRHe5a7tggu86MWmUBeDUAk
         //will return lat long
         //drop marker
-        //move camera public void searchMap(View v) throws IOException {
+        //move camera
         mMap.clear();
         try {
             mMap.setMyLocationEnabled(true);
+            
+
         }
         catch (SecurityException s){
 
         }
-        geocoder = new Geocoder(this, Locale.getDefault());
+
+        geocoder = new Geocoder(this, Locale.US);
         if (geocoder.isPresent()) {
-            if (locationSearch.getText().toString() == null) {
-                return;
-            }
+
             Log.d("MyGMap", locationSearch.getText().toString());
             try {
                 Log.d("MyGMap", "geocoder present");
-                myList = geocoder.getFromLocationName(locationSearch.getText().toString(), 25,
+                if (locationSearch.getText().toString() == "") {
+                    return;
+                }
+                myList = geocoder.getFromLocationName(locationSearch.getText().toString(), 5,
                         myLocation.getLatitude() - 0.07246377,
                         myLocation.getLongitude() - 0.09157509,
                         myLocation.getLatitude() + 0.07246377,
                         myLocation.getLongitude() + 0.09157509);
 
                 Log.d("MyGMap", "geocoder through");
-            } catch (SecurityException e) {
+                if (myList.size() == 0){
+                    return;
+                }
+                for (int i = 0; i < myList.size(); i++) {
+                    Log.d("MyGMap", "geocoder for loop");
+                    closest = new LatLng(myList.get(0).getLatitude(), myList.get(0).getLatitude());
+                    poi = new LatLng(myList.get(i).getLatitude(), myList.get(i).getLongitude());
+                    mMap.addMarker(new MarkerOptions().position(poi)
+                            .title(locationSearch.getText().toString()));
+                }
+            } catch (IOException se) {
                 Log.d("MyGMap", "SE gecodoer");
 
             }
-            if (myList.size() == 0){
-                return;
-            }
-            for (int i = 0; i < myList.size(); i++) {
-                Log.d("MyGMap", "geocoder for loop");
-                closest = new LatLng(myList.get(0).getLatitude(), myList.get(0).getLatitude());
-                poi = new LatLng(myList.get(i).getLatitude(), myList.get(i).getLongitude());
-                mMap.addMarker(new MarkerOptions().position(poi)
-                        .title(locationSearch.getText().toString()));
-            }
+
             CameraUpdate update = CameraUpdateFactory.newLatLngZoom(poi, MY_LOC_ZOOM_FACTOR);
             mMap.animateCamera(update);
         } else {
