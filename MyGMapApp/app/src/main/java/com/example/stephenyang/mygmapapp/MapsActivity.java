@@ -369,10 +369,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
 
             geocoder = new Geocoder(this, Locale.US);
+            try{
 
+                myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                Log.d("MyGMap", "myLocation added");
+
+            }
+            catch (SecurityException s){
+
+            }
 
             if (geocoder.isPresent()) {
-
                 Log.d("MyGMap", locationSearch.getText().toString());
                 try {
                     Log.d("MyGMap", "geocoder present");
